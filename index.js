@@ -9,7 +9,10 @@ const path = require('path');
  
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 // middleware
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:3000', // Replace with your frontend URL
+  credentials: true
+}));
 app.use(express.json());
 app.use('/uploads', express.static('uploads'));
 dotenv.config();
